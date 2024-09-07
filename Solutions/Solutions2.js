@@ -4,7 +4,7 @@
 // Iterates over a list of elements, yielding each in turn to the `cb` function.
 function each(array,callback){
    
-    for(let i=0;i<array.length;i++){
+    for(let i=0;i<array.length;i++){           // iterate through array and calling the callback function
         callback(array[i]);
     }
 }
@@ -14,22 +14,22 @@ function each(array,callback){
 function map(array,callback){
     let result = [];
     for(let i=0;i<array.length;i++){
-        result.push(callback(array[i],i,array));
+        result.push(callback(array[i],i,array));  // before pushing the result we can calling the call back function
     }
-    return result;
+    return result;     // returing the result
 }
 
 //function reduce
 
 function reduce(array,callback,startingValue){
     let accumlator =0;
-    let startIndex =0;
-    if(startingValue===undefined){
+    let startIndex =0;                          // intilze the values
+    if(startingValue===undefined){      // if startingValue is undefined then we are assign the first value of array 
         accumlator=array[0];
         startIndex=1;
     }
     for(let i=startIndex;i<array.length;i++){
-        accumlator=callback(accumlator,array[i]);
+        accumlator=callback(accumlator,array[i]);        // upadting the accumlator after the call back
     }
     return accumlator;
 }
@@ -39,7 +39,7 @@ function reduce(array,callback,startingValue){
 
 function find(array,callback){
     for(let i=0;i<array.length;i++){
-        if(callback(array[i])){
+        if(callback(array[i])){             // checking the call back condition and return that particular index
             return array[i];
         }
     }
@@ -52,7 +52,7 @@ function find(array,callback){
 function filter(array,callback){
     let result = [];
     for(let i=0;i<array.length;i++){
-        if(callback(array[i],i,array)){
+        if(callback(array[i],i,array)){    // checking the call back condition and push to array
             result.push(array[i]);
         }
     }
@@ -63,14 +63,14 @@ function filter(array,callback){
 function flatten(array){
     let result = [];
     for(let i=0;i<array.length;i++){
-        if(Array.isArray(array[i])){
+        if(Array.isArray(array[i])){            // if array index is a array then we can use the recursion function
             result = result.concat(flatten(array[i]));
         }
         else{
-            result.push(array[i]);
+            result.push(array[i]);  // if not push the value to array
         }
     }
-    return result;
+    return result;   // return the array
 }
 
 module.exports = {each,map,reduce,find,filter,flatten};
