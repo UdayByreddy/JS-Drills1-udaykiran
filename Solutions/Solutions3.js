@@ -39,6 +39,9 @@ function limitFunctionCallCount(cb,n){
 function cacheFunction(cb){
     let cache={};                  // create cache at clousers
     return function(name,age){
+        if(name===undefined || age === undefined){
+            return "enter vaild of args";
+        }
         let key = `${name}_${age}`;  // create an key
         if(cache[key]){                 // check the key in cache and return if having in the cache
             return cache[key];      
