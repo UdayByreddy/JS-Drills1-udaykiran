@@ -45,8 +45,7 @@ function filter(elements, cb) {
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
 }
-
-const nestedArray = [1, [2], [[3]], [[[4]]]]; // use this to test 'flatten'
+ // use this to test 'flatten'
 
 function flatten(elements) {
   // Flattens a nested array (the nesting can be to any depth).
